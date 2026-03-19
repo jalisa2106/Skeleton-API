@@ -103,11 +103,16 @@ async function extractAndDisplay() {
   }
 }
 
-// Helper to update the DOM
+// Helper to update the DOM and trigger syntax highlighting
 function updateUI(content) {
   const outputElement = document.getElementById('output');
   if (outputElement) {
     outputElement.textContent = content;
+    outputElement.className = 'language-javascript'; // Enforce the built-in JS highlighter
+    
+    if (window.Prism) {
+      Prism.highlightElement(outputElement);
+    }
   }
 }
 

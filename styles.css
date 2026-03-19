@@ -70,22 +70,36 @@ button {
   background-color: #cbd5e1;
 }
 
-/* Code Display Box */
 .code-box {
-  background: var(--code-bg);
-  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 16px;
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 0.85rem;
-  color: #334155;
   overflow-x: auto;
-  white-space: pre-wrap;
   box-shadow: var(--card-shadow);
   flex-grow: 1;
   max-height: 60vh;
+  margin: 0; /* Prevents awkward spacing */
 }
 
 .actions {
   margin-top: 8px;
+}
+
+/* --- Custom VS Code Style Scrollbar --- */
+.code-box::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-box::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.code-box::-webkit-scrollbar-thumb {
+  background: #475569; 
+  border-radius: 4px;
+}
+
+.code-box::-webkit-scrollbar-thumb:hover {
+  background: #64748b; 
 }
