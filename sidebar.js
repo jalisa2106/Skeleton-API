@@ -1,8 +1,3 @@
-/**
- * Skeleton API - Sidebar Logic
- * Features: Deep Type Inference, API Client Gen, Auto-Sync, and Export
- */
-
 // --- 1. DEEP TYPE INFERENCE ENGINE ---
 function generateTypes(json, rootName = "RootObject") {
   const interfaces = [];
@@ -25,11 +20,10 @@ function generateTypes(json, rootName = "RootObject") {
       } else if (Array.isArray(value)) {
         if (value.length > 0 && typeof value[0] === 'object') {
           // Recursive call for array of objects
-          const subName = capitalize(key.replace(/s$/, '')); // Simple plural to singular
+          const subName = capitalize(key.replace(/s$/, '')); 
           interfaceStr += `  ${key}: ${subName}[];\n`;
           parseObject(value[0], subName);
         } else {
-          // Primitive arrays
           interfaceStr += `  ${key}: ${typeof value[0] || 'any'}[];\n`;
         }
       } else if (type === 'object') {
@@ -81,8 +75,8 @@ async function extractAndDisplay() {
     
     // Safety check: Don't run on internal browser pages
     if (!tab || !tab.url || tab.url.startsWith('edge://') || tab.url.startsWith('chrome://')) {
-      updateUI("// Navigate to an API or JSON page...");
-      return;
+      updateUI("// Please navigate to a valid web page containing JSON.");
+      return; 
     }
 
     // Execute script to get page text
@@ -91,7 +85,10 @@ async function extractAndDisplay() {
       func: () => document.body.innerText,
     });
 
-    if (!results || !results[0]?.result) return;
+    if (!results || !results[0]?.result) {
+      updateUI("// No content found on this page.");
+      return;
+    }
 
     // Attempt to parse text as JSON
     const rawData = JSON.parse(results[0].result);
@@ -99,11 +96,10 @@ async function extractAndDisplay() {
     const fetchCode = generateFetchCode("RootObject", tab.url);
     
     updateUI(types + "\n\n" + fetchCode);
-    console.log("Skeleton API: Types updated.");
 
   } catch (e) {
-    // Fail silently during auto-sync to avoid interrupting user browsing
-    updateUI("// No valid JSON detected in this tab.");
+    // If it fails to parse JSON, give a clear error message.
+    updateUI("// Error: No valid JSON detected in the active tab.\n// Make sure you are viewing a raw JSON response.");
   }
 }
 
@@ -117,31 +113,26 @@ function updateUI(content) {
 
 // --- 4. EVENT LISTENERS ---
 
-// Manual Refresh
-document.getElementById('generate-btn')?.addEventListener('click', extractAndDisplay);
+// 1. Manual Generate Button
+document.getElementById('generate-btn')?.addEventListener('click', () => {
+  updateUI("// Extracting..."); // Gives the user immediate feedback that the button was clicked
+  extractAndDisplay();
+});
 
-// One-Click Export (Feature 4)
+// 2. One-Click Export
 document.getElementById('copy-btn')?.addEventListener('click', () => {
   const code = document.getElementById('output').textContent;
+  // Ensure we don't just copy the placeholder text
   if (code && !code.startsWith("//")) {
     navigator.clipboard.writeText(code);
     const btn = document.getElementById('copy-btn');
     const originalText = btn.textContent;
-    btn.textContent = "✓ Copied!";
-    setTimeout(() => btn.textContent = originalText, 2000);
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = originalText, 2000); // Resets button text after 2 seconds
   }
 });
 
-// AUTO-SYNC LISTENERS
-// 1. Trigger when switching tabs
-chrome.tabs.onActivated.addListener(extractAndDisplay);
-
-// 2. Trigger when a page finishes loading
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete') {
-    extractAndDisplay();
-  }
+// 3. Initial Setup
+document.addEventListener('DOMContentLoaded', () => {
+  updateUI("// Navigate to a JSON response and click 'Generate Skeleton'.");
 });
-
-// 3. Trigger immediately when sidebar opens
-document.addEventListener('DOMContentLoaded', extractAndDisplay);

@@ -3,7 +3,7 @@
   "name": "Skeleton API",
   "version": "1.0",
   "description": "Deep JSON to TypeScript & Fetch Generator",
-  "permissions": ["sidePanel", "activeTab", "scripting", "clipboardWrite", "tabs"],
+  "permissions": ["sidePanel", "activeTab", "scripting", "clipboardWrite"],
   "action": {
     "default_title": "Open Skeleton API"
   },
