@@ -1,5 +1,9 @@
 # Skeleton API
 
+[![Edge Extension](https://img.shields.io/badge/Browser-Microsoft%20Edge-blue.svg)](https://microsoftedge.microsoft.com/addons)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CS Student](https://img.shields.io/badge/Developer-CS%20Student-indigo.svg)](#-author)
+
 A high-performance developer utility built for the Microsoft Edge Sidebar. Skeleton API instantly transforms raw JSON responses from the active browser tab into clean TypeScript interfaces and ready-to-use Fetch client code.
 
 ## The Problem It Solves
