@@ -7,9 +7,9 @@
   "action": {
     "default_title": "Open Skeleton API",
     "default_icon": {
-      "16": "icon128.jpg",
-      "48": "icon128.jpg",
-      "128": "icon128.jpg"
+      "16": "icon128.png",
+      "48": "icon128.png",
+      "128": "icon128.png"
     }
   },
   "side_panel": {

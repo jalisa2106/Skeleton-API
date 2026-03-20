@@ -1,70 +1,60 @@
-# Skeleton API - Edge Sidebar Extension
+# Skeleton API
 
-[![Edge Extension](https://img.shields.io/badge/Browser-Microsoft%20Edge-blue.svg)](https://microsoftedge.microsoft.com/addons)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CS Student](https://img.shields.io/badge/Developer-CS%20Student-indigo.svg)](#-author)
+A high-performance developer utility built for the Microsoft Edge Sidebar. Skeleton API instantly transforms raw JSON responses from the active browser tab into clean TypeScript interfaces and ready-to-use Fetch client code.
 
-**Skeleton API** is a high-performance productivity tool for full-stack developers. It lives in your Microsoft Edge Sidebar and instantly transforms raw JSON API responses into clean **TypeScript Interfaces** and **ready-to-use Fetch Client code**.
+## The Problem It Solves
 
----
+During full-stack development, writing TypeScript interfaces for complex, deeply nested JSON APIs is a repetitive and time-consuming process. Existing web-based converters require developers to constantly switch tabs, copy-paste raw data, and manage temporary files. 
 
-## The "Out of the Blue" Problem
-Most developers waste 15–30 minutes per project manually typing out interfaces for nested JSON data. Existing web-based converters require constant tab-switching and copy-pasting. 
+Skeleton API solves this by sitting natively in your browser's sidebar. It reads the JSON directly from your active tab and generates the required boilerplate code, allowing you to copy it straight into your project without disrupting your workflow.
 
-**Skeleton API solves this by:**
-- **Staying Open:** Living in the Edge Sidebar for a side-by-side workflow.
-- **Auto-Syncing:** Automatically detecting JSON when you switch tabs or refresh a page.
-- **Deep Inference:** Recursively mapping nested objects and arrays into a full type system.
+## Core Features
 
----
-
-## Features
-
-- **[Feature 1] Deep Type Inference:** Recursively crawls through complex, nested JSON to build a complete TypeScript type tree.
-- **[Feature 2] API Client Generation:** Automatically generates boilerplate `async/await` fetch functions mapped to your root types.
-- **[Feature 4] One-Click Export:** Instantly copy the entire generated file to your clipboard, ready for your Next.js or TypeScript project.
-- **Auto-Detect Mode:** The sidebar updates in real-time as you browse different API endpoints.
-
----
-
-## Tech Stack
-
-- **Core:** JavaScript (ES6+), Manifest V3
-- **UI:** Tailwind CSS (Minimalist/Pastel Theme)
-- **APIs:** Chrome/Edge Extension API (SidePanel, Scripting, Tabs)
-
----
+* **Deep Type Inference:** Recursively crawls through nested JSON arrays and objects to build a complete, perfectly typed TypeScript tree.
+* **API Client Generation:** Automatically generates a boilerplate asynchronous fetch function mapped to the inferred root types.
+* **Persistent State:** Utilizes a manual generation trigger. Your generated code remains safely in the sidebar even as you switch tabs to read documentation or browse your project.
+* **Native IDE Aesthetic:** Features a permanent dark theme, custom minimal scrollbars, and full TypeScript syntax highlighting powered by Prism.js.
+* **Local Processing:** Operates entirely within the browser. No data is collected, stored, or transmitted to external servers.
 
 ## Installation (Developer Mode)
 
-Since this is currently an open-source tool, you can load it manually:
+To use this extension before it is officially available on the Edge Add-ons Store, you can load it manually:
 
-1. Download or clone this repository.
+1. Download or clone this repository to your local machine.
 2. Open Microsoft Edge and navigate to `edge://extensions/`.
-3. Toggle **Developer mode** (bottom left).
-4. Click **Load unpacked** and select the folder containing these files.
-5. Open any JSON URL (e.g., [GitHub API](https://api.github.com/users/octocat)) and open the Sidebar!
+3. Enable "Developer mode" using the toggle in the bottom left corner.
+4. Click "Load unpacked" and select the folder containing the extension files.
+5. The extension will now appear in your Edge Sidebar.
 
----
+## Usage Guide
 
-## Usage Example
+1. Navigate to any URL displaying a raw JSON response (e.g., a standard API endpoint).
+2. Open the Skeleton API Sidebar.
+3. Click the "Generate Skeleton" button.
+4. The TypeScript interfaces and fetch code will render with full syntax highlighting.
+5. Click "Copy to Clipboard" and paste the output directly into your codebase.
 
-1. Navigate to a JSON endpoint.
-2. Open the **Skeleton API** Sidebar.
-3. The types and fetch code appear **instantly**.
-4. Click **Copy to Clipboard** and paste directly into your `types.ts` or `api.ts` file.
+## Technical Architecture
 
----
+* **Platform:** Manifest V3, Microsoft Edge Extension API (SidePanel, Scripting, ActiveTab)
+* **Logic:** Native JavaScript (ES6+)
+* **Styling:** Custom CSS with CSS Variables (Dark Theme)
+* **Syntax Highlighting:** Prism.js
 
 ## Author
 
-**Jalisabanu Malik** *Computer Science Student @ Charusat University* *Full-Stack Developer & AI Enthusiast*
+**Jalisabanu Malik**
+Computer Science Student at Charusat University
+Full-Stack, AI/ML, and Generative AI Developer
 
-- **GitHub:** [https://github.com/jalisa2106]
-- **LinkedIn:** [https://www.linkedin.com/in/jalisa-malik-8b0308333?utm_source=share_via&utm_content=profile&utm_medium=member_android]
+## License
 
----
+This project is licensed under the MIT License.
 
-## 📜 License
+Copyright (c) 2026 Jalisabanu Malik
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
