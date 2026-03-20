@@ -5,10 +5,20 @@
   "description": "Deep JSON to TypeScript & Fetch Generator",
   "permissions": ["sidePanel", "activeTab", "scripting", "clipboardWrite"],
   "action": {
-    "default_title": "Open Skeleton API"
+    "default_title": "Open Skeleton API",
+    "default_icon": {
+      "16": "icon128.jpg",
+      "48": "icon128.jpg",
+      "128": "icon128.jpg"
+    }
   },
   "side_panel": {
     "default_path": "sidebar.html"
   },
-  "host_permissions": ["<all_urls>"]
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icon128.jpg",
+    "48": "icon128.jpg",
+    "128": "icon128.jpg"
+  }
 }
