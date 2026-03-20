@@ -1,0 +1,2 @@
+Privacy Policy for Skeleton API
+Skeleton API operates entirely locally within your browser. It does not collect, store, transmit, or share any personal information, browsing history, or API data with any external servers or third parties. All JSON processing and TypeScript generation happens securely on your own machine.
